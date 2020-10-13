@@ -8,7 +8,11 @@ const App = ({ channels }) => {
 
       <div className="channels">
         {channels.map((channel, index) => (
-          <Link href="/channel" key={`${channel.id}-${index}`} prefetch>
+          <Link
+            href={`/channel?id=${channel.id}`}
+            key={`${channel.id}-${index}`}
+            prefetch={false}
+          >
             <a className="channel">
               <img src={channel.urls.logo_image.original} alt={channel.title} />
               <h2>{channel.title}</h2>
