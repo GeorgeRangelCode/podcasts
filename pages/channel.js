@@ -81,7 +81,9 @@ export default class extends React.Component {
     return (
       <Layout title={channel.title}>
         {openPodcast && (
-          <PodcastPlayer clip={openPodcast} onClose={this.closePodcast} />
+          <div className="modal">
+            <PodcastPlayer clip={openPodcast} onClose={this.closePodcast} />
+          </div>
         )}
 
         <div
@@ -123,6 +125,14 @@ export default class extends React.Component {
             font-size: 1.2em;
             font-weight: 600;
             margin: 0;
+          }
+          .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background: black;
+            z-index: 99999;
           }
         `}</style>
       </Layout>
