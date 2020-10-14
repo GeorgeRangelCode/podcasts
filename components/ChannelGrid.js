@@ -9,7 +9,6 @@ export default class ChannelGrid extends Component {
         {channels.map((channel, index) => (
           <Link
             href={`/channel?id=${channel.id}`}
-            prefetch
             key={`${channel.id}-${index}`}
           >
             <a className="channel">
