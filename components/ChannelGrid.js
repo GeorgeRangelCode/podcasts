@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { Link } from "../routes";
+import slug from "../helpers/slug";
 import React, { Component } from "react";
 
 export default class ChannelGrid extends Component {
@@ -8,7 +9,11 @@ export default class ChannelGrid extends Component {
       <div className="channels">
         {channels.map((channel, index) => (
           <Link
-            href={`/channel?id=${channel.id}`}
+            route="channel"
+            params={{
+              slug: slug(channel.title),
+              id: channel.id,
+            }}
             key={`${channel.id}-${index}`}
           >
             <a className="channel">
