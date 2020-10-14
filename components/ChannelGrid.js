@@ -1,19 +1,17 @@
 import { Link } from "../routes";
 import slug from "../helpers/slug";
-import React, { Component } from "react";
 
-export default class ChannelGrid extends Component {
+export default class ChannelGrid extends React.Component {
   render() {
     const { channels } = this.props;
+
     return (
       <div className="channels">
         {channels.map((channel, index) => (
           <Link
             route="channel"
-            params={{
-              slug: slug(channel.title),
-              id: channel.id,
-            }}
+            params={{ slug: slug(channel.title), id: channel.id }}
+            prefetch
             key={`${channel.id}-${index}`}
           >
             <a className="channel">
@@ -30,7 +28,7 @@ export default class ChannelGrid extends Component {
             padding: 15px;
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
           }
-          a.channel {
+          .channel {
             display: block;
             margin-bottom: 0.5em;
             color: #333;
